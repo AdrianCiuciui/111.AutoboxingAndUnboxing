@@ -25,13 +25,6 @@ public class Branch {
 
         this.clientsList.add(customerToReturn);
         return customerToReturn;
-
-//        if (!isCustomerRegistered(customerName)) {
-//            Customer customerToReturn = new Customer (customerName, amountAsArrayL, currentBranch);
-//            this.clientsList.add(customerToReturn);
-//            return customerToReturn;
-//        }
-//        return null;
     }
 
     private boolean isNewCustomerAdded (Customer customer) {
@@ -55,10 +48,16 @@ public class Branch {
     return false;
     }
 
+    public Customer isClientInTheList (String branch) {
+        for (int i = 0; i < this.getClientsList().size(); i++)
+            if (this.getClientsList().get(i).getCustomerName().equals(branch))
+                return this.getClientsList().get(i);
+        return null;
+    }
+
     public String getBranchName () {
         return this.branchName;
     }
-
 
     public ArrayList<Customer> getClientsList() {
         return this.clientsList;

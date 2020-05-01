@@ -1,6 +1,5 @@
 package com.company;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -86,17 +85,32 @@ public class Main {
         Customer thisCustomer = new Customer (newCustomerName, createTransactionsList(initialAmount), ing.selectBranch(selectedBranch));
         Branch branch = ing.selectBranch(selectedBranch);
         branch.getClientsList().add(thisCustomer);
+        System.out.println("New customer has been added. Will return to the menu.");
     }
 
     private static void addTransactionToExistingCustomer () {
         System.out.println("Please enter your Branch");
         String clientBranch = scanner.nextLine();
+        if (ing.branchInTheList(clientBranch) == null) {
+            System.out.println("Could not find branch. Will be returned to the bank menu");
+            return;
+        }
+        Branch theClientsFinalBranch = ing.branchInTheList(clientBranch);
 
         System.out.println("Please enter your name");
         String clientName = scanner.nextLine();
+        if (theClientsFinalBranch.isClientInTheList(clientName) == null) {
+            System.out.println("Could not find client. Will be returned to the bank menu");
+            return;
+        }
+        Customer theFinalClient = theClientsFinalBranch.isClientInTheList(clientName);
 
         System.out.println("Please enter the amount you want to trade");
+        Double amountToBeAdded = scanner.nextDouble(); scanner.nextLine();
 
+        theFinalClient.getDoubleArrayList().add(amountToBeAdded);
+        System.out.println("The amount " + amountToBeAdded + " has been added to " +
+                theFinalClient.getCustomerName() + " from branch " + theClientsFinalBranch.getBranchName());
     }
 
     private static void listAllCustomersFromAllBranches () {

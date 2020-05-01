@@ -24,12 +24,12 @@ public class Bank {
 
     public void bankMenu (Bank bank) {
         System.out.println("=== Welcome to " + bank.nameOfBank + " bank menu: \n" +
-                "0. Add a new branch    \n" +
-                "1. Add new customer with transaction    \n" +
-                "2. Add existing customer with transaction    \n" +
-                "3. Show list of all bank customers     \n" +
+                "0. Add a new branch to the bank    \n" +
+                "1. Add new customer with his/hers first transaction    \n" +
+                "2. Add transaction to existing customer    \n" +
+                "3. Show list of all bank customers from all branches    \n" +
                 "4. List all of " + bank.nameOfBank + "'s branches   \n" +
-                "5. Go to previous menu");
+                "5. Go to the previous menu");
     }
 
     public Branch createNewBranch(String branchName, Bank bank) {
@@ -41,7 +41,8 @@ public class Bank {
             this.branchArrayList.add(branch);
             int indexOfBranch = this.branchArrayList.size() - 1;
             System.out.println(bank.nameOfBank + " has created a new branch named " +
-                    this.branchArrayList.get(indexOfBranch).getBranchName());
+                    this.branchArrayList.get(indexOfBranch).getBranchName() +
+                    ". Will return to the menu.");
             return branch;
         }
     }
@@ -50,6 +51,13 @@ public class Bank {
         for (int i = 0; i < branchArrayList.size(); i++)
             if (this.branchArrayList.get(i).getBranchName().equals(branchNameCheck)) return true;
         return false;
+    }
+
+    public Branch branchInTheList(String branch) {
+        for (int i = 0; i < this.branchArrayList.size(); i++)
+            if (this.getBranchArrayList().get(i).getBranchName().equals(branch))
+                return this.branchArrayList.get(i);
+        return null;
     }
 
     public ArrayList<Branch> getBranchArrayList() {
