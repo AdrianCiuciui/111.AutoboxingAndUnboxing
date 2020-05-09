@@ -14,17 +14,11 @@ public class Customer {
         this.branch = branch;
     }
 
-
-
     public String getCustomerName() {
         return this.customerName;
     }
 
     public ArrayList<Double> getDoubleArrayList() {
         return this.doubleArrayList;
-    }
-
-    public void setDoubleArrayList(ArrayList<Double> doubleArrayList) {
-        this.doubleArrayList = doubleArrayList;
     }
 }

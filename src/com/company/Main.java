@@ -13,14 +13,14 @@ public class Main {
         System.out.println("Welcome to " + ing.getNameOfBank() + " Bank");
         Branch zorilor = ing.createNewBranch("Zorilor", ing);
         Branch cipariu = ing.createNewBranch("Cipariu", ing);
-        Branch centru = ing.createNewBranch("Centru", ing);
+        ing.createNewBranch("Centru", ing);
 
         ArrayList<Double> amount = new ArrayList<>();        amount.add(2.55); amount.add(51.23); amount.add(102.25);
-        Customer customer1 = zorilor.createNewCustomer("Adrian", amount);
+        zorilor.createNewCustomer("Adrian", amount);
         ArrayList<Double> amount2 = new ArrayList<>();         amount2.add(7.77); amount2.add(82.77); amount2.add(298.7);
-        Customer customer2 = zorilor.createNewCustomer("Decebal", amount2);
+        zorilor.createNewCustomer("Decebal", amount2);
         ArrayList<Double> amount3 = new ArrayList<>();         amount3.add(1.45);
-        Customer customer3 = cipariu.createNewCustomer("Traian", amount3);
+        cipariu.createNewCustomer("Traian", amount3);
 
 
 
